@@ -1,9 +1,10 @@
 package service;
 
-import com.training.springcore.model.Captor;
-import com.training.springcore.service.measure.MeasureService;
+
+import model.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import service.measure.MeasureService;
 
 import java.util.HashSet;
 import java.util.Set;

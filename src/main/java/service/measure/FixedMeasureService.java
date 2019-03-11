@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service("fixedMeasureService")
+
 public class FixedMeasureService implements MeasureService {
 
     @Value("${bigcorp.measure.default-fixed}")
