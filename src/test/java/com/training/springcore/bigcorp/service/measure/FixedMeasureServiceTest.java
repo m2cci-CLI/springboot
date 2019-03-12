@@ -1,11 +1,13 @@
 package com.training.springcore.bigcorp.service.measure;
 
-import com.training.springcore.model.Captor;
-import com.training.springcore.model.Measure;
-import com.training.springcore.model.MeasureStep;
+
+import com.training.springcore.bigcorp.model.Captor;
+import com.training.springcore.bigcorp.model.Measure;
+import com.training.springcore.bigcorp.model.MeasureStep;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -16,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {MeasureServiceConfigurationTest.class})
+@SpringBootTest
 public class FixedMeasureServiceTest {
     @Autowired
     private FixedMeasureService service;

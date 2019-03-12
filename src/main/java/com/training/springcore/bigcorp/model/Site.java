@@ -1,4 +1,4 @@
-package model;
+package com.training.springcore.bigcorp.model;
 
 import java.util.Objects;
 import java.util.Set;

@@ -1,9 +1,11 @@
-package service.measure;
+package com.training.springcore.bigcorp.service.measure;
 
 
-import model.Captor;
-import model.Measure;
-import model.MeasureStep;
+import com.training.springcore.bigcorp.config.com.training.spring.bigcorp.config.properties.BigCorpApplicationProperties;
+import com.training.springcore.bigcorp.model.Captor;
+import com.training.springcore.bigcorp.model.Measure;
+import com.training.springcore.bigcorp.model.MeasureStep;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,9 @@ import java.util.List;
 
 public class FixedMeasureService implements MeasureService {
 
-    @Value("${bigcorp.measure.default-fixed}")
-    private Integer defaultMeasure;
+   @Autowired
+   private BigCorpApplicationProperties properties;
+
 
     @Override
     public List<Measure> readMeasures(Captor captor, Instant start, Instant end, MeasureStep step) {
@@ -24,7 +27,7 @@ public class FixedMeasureService implements MeasureService {
         List<Measure> measures = new ArrayList<>();
         Instant current = start;
         while(current.isBefore(end)){
-            measures.add(new Measure(current, defaultMeasure, captor));
+            measures.add(new Measure(current, properties.getMeasure().getDefaultFixed(), captor));
             current = current.plusSeconds(step.getDurationInSecondes());
         }
         return measures;

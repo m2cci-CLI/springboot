@@ -1,4 +1,4 @@
-package model;
+package com.training.springcore.bigcorp.model;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -19,6 +19,20 @@ public class Captor {
      * */
 
     private PowerSource powerSource;
+
+    private Site site ;
+
+    public Captor(String name , Site site) {
+        this.name = name;
+        this.site = site;
+    }
+
+    public Captor(String id, String name, PowerSource powerSource, Site site) {
+        this.id = id;
+        this.name = name;
+        this.powerSource = powerSource;
+        this.site = site;
+    }
 
     @Deprecated
     public Captor() {

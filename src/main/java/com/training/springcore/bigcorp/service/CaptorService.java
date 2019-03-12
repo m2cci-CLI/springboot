@@ -1,6 +1,7 @@
-package service;
+package com.training.springcore.bigcorp.service;
 
-import com.training.springcore.model.Captor;
+
+import com.training.springcore.bigcorp.model.Captor;
 
 import java.util.Set;
 

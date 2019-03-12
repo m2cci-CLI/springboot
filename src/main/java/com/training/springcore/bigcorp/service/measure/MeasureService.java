@@ -1,9 +1,9 @@
-package service.measure;
+package com.training.springcore.bigcorp.service.measure;
 
 
-import model.Captor;
-import model.Measure;
-import model.MeasureStep;
+import com.training.springcore.bigcorp.model.Captor;
+import com.training.springcore.bigcorp.model.Measure;
+import com.training.springcore.bigcorp.model.MeasureStep;
 
 import java.time.Instant;
 import java.util.List;

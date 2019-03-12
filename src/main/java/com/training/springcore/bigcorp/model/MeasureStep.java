@@ -1,4 +1,4 @@
-package model;
+package com.training.springcore.bigcorp.model;
 
 public enum MeasureStep {
     ONE_MINUTE(60),

@@ -1,4 +1,4 @@
-package service;
+package com.training.springcore.bigcorp.service;
 
 import java.lang.annotation.*;
 

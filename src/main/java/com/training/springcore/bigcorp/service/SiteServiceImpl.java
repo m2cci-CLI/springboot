@@ -1,19 +1,24 @@
-package service;
+package com.training.springcore.bigcorp.service;
 
-import com.training.springcore.model.Site;
+
+import com.training.springcore.bigcorp.model.Site;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
+
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
+
+
 
 @Service("siteService")
 @Component
 public class SiteServiceImpl  implements SiteService{
+
+    private final static Logger logger = (Logger) LoggerFactory.getLogger(SiteService.class);
+
 
     private CaptorService captorService;
 
@@ -27,7 +32,8 @@ public class SiteServiceImpl  implements SiteService{
 
     @Autowired
     public SiteServiceImpl(CaptorService captorService){
-        System.out.println("Init SiteServiceImpl :" + this);
+        logger.info("Appel de findById avec id {}",this);
+       // System.out.println("Init SiteServiceImpl :" + this);
         this.captorService = captorService;
     }
 
@@ -45,17 +51,5 @@ public class SiteServiceImpl  implements SiteService{
         return site;
     }
 
-    @Override
-    public void readFile(String path){
-        Resource resource = resourceLoader.getResource(path);
 
-        try(InputStream stream = resource.getInputStream()){
-            Scanner scan = new Scanner(stream).useDelimiter("\\n");
-            while(scan.hasNext()){
-                System.out.println(scan.next());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
