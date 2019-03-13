@@ -1,18 +1,15 @@
 package com.training.springcore.bigcorp.service;
 
-import com.training.springcore.bigcorp.epository.CaptorDao;
+import com.training.springcore.bigcorp.repository.CaptorDao;
 import com.training.springcore.bigcorp.model.Captor;
 import com.training.springcore.bigcorp.model.Site;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.Set;

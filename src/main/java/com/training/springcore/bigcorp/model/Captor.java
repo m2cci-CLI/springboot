@@ -1,26 +1,28 @@
 package com.training.springcore.bigcorp.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
-
+@Entity
 public class Captor {
-    /**
-     * Captor id
-     */
+
+    @Id
     private String id = UUID.randomUUID().toString();
-
-    /**
-     * Captor name
-     */
+    @Column(nullable = false)
     private String name;
-
-    /**
-     * Captor PowerSource powerSource;
-     * */
-
-    private PowerSource powerSource;
-
+    @ManyToOne
     private Site site ;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private PowerSource powerSource;
+    @Column
+    private Integer defaultPowerInWatt;
+
+
+
+    public Site getSite() {
+        return site;
+    }
 
     public Captor(String name , Site site) {
         this.name = name;
@@ -31,6 +33,14 @@ public class Captor {
         this.id = id;
         this.name = name;
         this.powerSource = powerSource;
+        this.site = site;
+    }
+
+    public Captor(String id, String name, PowerSource powerSource, Integer defaultPowerInWatt, Site site) {
+        this.id = id;
+        this.name = name;
+        this.powerSource = powerSource;
+        this.defaultPowerInWatt = defaultPowerInWatt;
         this.site = site;
     }
 
@@ -45,7 +55,27 @@ public class Captor {
      */
     public Captor(String name) {
         this.name = name;
-        this.powerSource = PowerSource.FIXED;
+
+    }
+
+    public PowerSource getPowerSource() {
+        return powerSource;
+    }
+
+    public void setPowerSource(PowerSource powerSource) {
+        this.powerSource = powerSource;
+    }
+
+    public Integer getDefaultPowerInWatt() {
+        return defaultPowerInWatt;
+    }
+
+    public void setDefaultPowerInWatt(Integer defaultPowerInWatt) {
+        this.defaultPowerInWatt = defaultPowerInWatt;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
     }
 
     public String getId() {

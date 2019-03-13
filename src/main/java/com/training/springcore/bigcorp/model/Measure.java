@@ -1,20 +1,28 @@
 package com.training.springcore.bigcorp.model;
-
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.Objects;
-
+@Entity
 public class Measure {
 
-    private Instant instant; //instant au format UTC  où la date a été lue
-    private Integer valueInWatt; //value en watt
-    private Captor captor;
-    private long id ;
 
-    public long getId() {
+
+    @Id
+    @GeneratedValue
+    private Long id ;
+    @Column(nullable = false)
+    private Instant instant; //instant au format UTC  où la date a été lue
+    @Column(nullable = false)
+    private Integer valueInWatt; //value en watt
+
+    @ManyToOne
+    private Captor captor;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

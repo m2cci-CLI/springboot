@@ -1,7 +1,7 @@
 package com.training.springcore.bigcorp.service;
 
 
-import com.training.springcore.bigcorp.epository.CaptorDao;
+import com.training.springcore.bigcorp.repository.CaptorDao;
 import com.training.springcore.bigcorp.model.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
