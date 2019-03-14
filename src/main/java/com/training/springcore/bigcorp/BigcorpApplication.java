@@ -16,8 +16,7 @@ public class BigcorpApplication {
 
 
 
-		ApplicationContext context = SpringApplication.run(BigcorpApplication.class,
-				args);
+		ApplicationContext context = SpringApplication.run(BigcorpApplication.class, args);
 		BigCorpApplicationProperties bigCorpApplicationProperties = context.getBean(BigCorpApplicationProperties.class);
 
 		logger.info("================================================================== ======");

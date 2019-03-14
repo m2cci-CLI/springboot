@@ -2,6 +2,7 @@ package com.training.springcore.bigcorp.repository;
 import com.training.springcore.bigcorp.model.Site;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.groups.Tuple;
+import org.hibernate.exception.ConstraintViolationException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import java.util.List;
+import java.util.Optional;
 
 
 @RunWith(SpringRunner.class)
@@ -52,8 +54,7 @@ public class SiteDaoImplTest {
     @Test
     public void update() {
         Optional<Site> site = siteDao.findById("site1");
-        Assertions.assertThat(site).get().extracting("name").containsExactly("Bigcorp
-                Lyon");
+        Assertions.assertThat(site).get().extracting("name").containsExactly("Bigcorp Lyon");
                 site.ifPresent(s -> {
                     s.setName("Site updated");
                     siteDao.save(s);
@@ -82,4 +83,8 @@ public class SiteDaoImplTest {
                 .hasCauseExactlyInstanceOf(ConstraintViolationException.class);
     }
 
-}
+
+
+    }
+
+

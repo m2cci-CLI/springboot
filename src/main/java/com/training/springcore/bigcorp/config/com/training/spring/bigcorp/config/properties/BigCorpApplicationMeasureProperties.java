@@ -1,9 +1,6 @@
 package com.training.springcore.bigcorp.config.com.training.spring.bigcorp.config.properties;
 
-import com.training.springcore.bigcorp.service.measure.FixedMeasureService;
-import com.training.springcore.bigcorp.service.measure.RealMeasureService;
-import com.training.springcore.bigcorp.service.measure.SimulatedMeasureService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class BigCorpApplicationMeasureProperties {
 

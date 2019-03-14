@@ -1,24 +1,32 @@
 package com.training.springcore.bigcorp.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.UUID;
 @Entity
-public class Captor {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class  Captor {
 
     @Id
     private String id = UUID.randomUUID().toString();
-    @Column(nullable = false)
+    @Size(min = 3, max = 100)
+    @NotNull
     private String name;
     @ManyToOne
     private Site site ;
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private PowerSource powerSource;
-    @Column
-    private Integer defaultPowerInWatt;
 
+    @Version
+    private int version;
 
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
     public Site getSite() {
         return site;
@@ -28,30 +36,23 @@ public class Captor {
         this.site = site;
     }
 
-    public Captor(String name, Integer defaultPowerInWatt) {
-        this.name = name;
-        this.defaultPowerInWatt = defaultPowerInWatt;
-    }
+
 
     public Captor(String name, Site site) {
+
+      this.name = name;
+        this.site = site;
+
+    }
+
+    public Captor(String id, String name, Site site) {
+        this.id = id;
         this.name = name;
+
         this.site = site;
     }
 
-    public Captor(String id, String name, PowerSource powerSource, Site site) {
-        this.id = id;
-        this.name = name;
-        this.powerSource = powerSource;
-        this.site = site;
-    }
 
-    public Captor(String id, String name, PowerSource powerSource, Integer defaultPowerInWatt, Site site) {
-        this.id = id;
-        this.name = name;
-        this.powerSource = powerSource;
-        this.defaultPowerInWatt = defaultPowerInWatt;
-        this.site = site;
-    }
 
     @Deprecated
     public Captor() {
@@ -67,21 +68,6 @@ public class Captor {
 
     }
 
-    public PowerSource getPowerSource() {
-        return powerSource;
-    }
-
-    public void setPowerSource(PowerSource powerSource) {
-        this.powerSource = powerSource;
-    }
-
-    public Integer getDefaultPowerInWatt() {
-        return defaultPowerInWatt;
-    }
-
-    public void setDefaultPowerInWatt(Integer defaultPowerInWatt) {
-        this.defaultPowerInWatt = defaultPowerInWatt;
-    }
 
     public void setSite(Site site) {
         this.site = site;

@@ -1,6 +1,8 @@
 package com.training.springcore.bigcorp.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
@@ -15,20 +17,35 @@ public class Site {
     /**
      * Site name
      */
-    @Column(nullable = false)
+    @Size(min = 3, max = 100)
+    @NotNull
     private String name;
 
     /**
      * Site captors
      */
-    @Column(nullable = false)
+
     @OneToMany (mappedBy="site")
     private Set<Captor> captors;
+
+    @Version
+    private int version;
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
     @Deprecated
     public Site() {
         // Use for serializer or deserializer
     }
+
+
+
 
 
 
