@@ -22,16 +22,27 @@ public class CaptorDaoImpl implements CaptorDao {
     }
     @Override
     public List<Captor> findAll() {
-        return em.createQuery("select c from Captor c inner join c.site s",
+        return em.createQuery("select c from Captor c",
                 Captor.class)
                 .getResultList();
     }
-    @Override
-    public List<Captor> findBySiteId(String siteId) {
-        return em.createQuery("select c from Captor c inner join c.site s where s.id =:siteId",Captor.class).setParameter("siteId", siteId).getResultList();
-    }
+
     @Override
     public void delete(Captor captor) {
         em.remove(captor);
     }
+
+    @Override
+    public List<Captor> findBySiteId(String siteId) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(String id) {
+
+        em.remove(findById("id"));
+
+    }
+
+
 }

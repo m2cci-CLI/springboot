@@ -8,4 +8,5 @@ public interface CrudDao <T , ID> {
     T findById(ID id);
     List<T> findAll();
     void delete(T id);
+
 }

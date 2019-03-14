@@ -30,10 +30,25 @@ public class Site {
         // Use for serializer or deserializer
     }
 
+
+
+    public Site(String id, String name, Set<Captor> captors) {
+        this.id = id;
+        this.name = name;
+        this.captors = captors;
+    }
+
     /**
      * Constructor to use with required property
      * @param name
+     *
+     *
+     *
+     *
      */
+
+
+
     public Site(String name) {
         this.name = name;
     }

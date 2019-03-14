@@ -24,7 +24,16 @@ public class Captor {
         return site;
     }
 
-    public Captor(String name , Site site) {
+    public Captor(Site site) {
+        this.site = site;
+    }
+
+    public Captor(String name, Integer defaultPowerInWatt) {
+        this.name = name;
+        this.defaultPowerInWatt = defaultPowerInWatt;
+    }
+
+    public Captor(String name, Site site) {
         this.name = name;
         this.site = site;
     }

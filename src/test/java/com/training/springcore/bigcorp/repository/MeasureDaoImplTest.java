@@ -28,7 +28,7 @@ public class MeasureDaoImplTest {
     public void findById() {
         Measure measure = measureDao.findById(-1L);
         Assertions.assertThat(measure.getId()).isEqualTo(-1L);
-        Assertions.assertThat(measure.getInstant()).isEqualTo(Instant.parse("2018-09- 08T11:00:00.000Z"));
+        Assertions.assertThat(measure.getInstant()).isEqualTo(Instant.parse("2018-08-09T11:00:00.000Z"));
         Assertions.assertThat(measure.getValueInWatt()).isEqualTo(1_000_000);
         Assertions.assertThat(measure.getCaptor().getName()).isEqualTo("Eolienne");
         Assertions.assertThat(measure.getCaptor().getSite().getName()).isEqualTo("Bigcorp Lyon");

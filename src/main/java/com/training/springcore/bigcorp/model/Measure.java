@@ -15,6 +15,10 @@ public class Measure {
     @Column(nullable = false)
     private Integer valueInWatt; //value en watt
 
+    public Measure() {
+
+    }
+
     @ManyToOne
     private Captor captor;
 

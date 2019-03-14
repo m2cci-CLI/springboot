@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CaptorDao extends CrudDao<Captor, String> {
     List<Captor> findBySiteId(String siteId);
+    void deleteById(String Id);
+
 }

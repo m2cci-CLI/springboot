@@ -3,7 +3,7 @@ package com.training.springcore.bigcorp.repository;
 
 import com.training.springcore.bigcorp.model.Measure;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
+
 
 
 import javax.persistence.EntityManager;
